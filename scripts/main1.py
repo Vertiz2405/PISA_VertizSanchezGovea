@@ -206,7 +206,7 @@ def analizar_series_temporales(df, variables):
     os.makedirs("data", exist_ok=True)
 
     # Guardar el archivo CSV limpio
-    output_file = "data1/serie_temporal_prueba.csv"
+    output_file = "data/serie_temporal_prueba.csv"
     data.to_csv(output_file, index=False)
     print(f"Archivo guardado en {output_file} con {data.shape[0]} filas.")
 
