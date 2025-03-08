@@ -5,3 +5,7 @@ matplotlib
 scikit-learn
 pyspark
 pyarrow
+statsmodels
+pmdarima
+argparse
+
