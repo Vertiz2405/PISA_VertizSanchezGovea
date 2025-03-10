@@ -206,7 +206,7 @@ def analizar_series_temporales(df, variables):
     os.makedirs("data", exist_ok=True)
 
     # Guardar el archivo CSV limpio con el ajuste de zona horaria
-    output_file = "data/serie_temporal_07_01_2025.csv"
+    output_file = "data/serie_temporal_16_01_2025.csv"
     data.to_csv(output_file, index=False)
     print(f"Archivo guardado en {output_file} con {data.shape[0]} filas.")
 
