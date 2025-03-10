@@ -176,7 +176,7 @@ def filtrar_variables(df_pivot):
     return df_filtrado, variables_usables_80
 
 def analizar_series_temporales(df, variables):
-    """Realiza el análisis de series de tiempo asegurando timestamps únicos y correctos."""
+    """Realiza el análisis de series de tiempo asegurando timestamps únicos y correctos, ajustando zona horaria."""
 
     print("Columnas antes de procesar:", df.columns.tolist())
 
@@ -198,15 +198,15 @@ def analizar_series_temporales(df, variables):
         print("Advertencia: Eliminando timestamps duplicados antes del merge.")
         df = df.drop_duplicates(subset=['user_ts__'])
 
-    print(f"Antes del merge: {df.shape[0]} filas y {df.shape[1]}")
+    print(f"Antes del merge: {df.shape[0]} filas y {df.shape[1]} columnas")
     
     # Agrupar por timestamp tomando el valor máximo de cada variable
     data = df.groupby('user_ts__', as_index=False).max()
 
     os.makedirs("data", exist_ok=True)
 
-    # Guardar el archivo CSV limpio
-    output_file = "data1/serie_temporal_prueba.csv"
+    # Guardar el archivo CSV limpio con el ajuste de zona horaria
+    output_file = "data/serie_temporal_16_01_2025.csv"
     data.to_csv(output_file, index=False)
     print(f"Archivo guardado en {output_file} con {data.shape[0]} filas.")
 
